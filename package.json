@@ -1,4 +1,5 @@
 {
+  "homepage": "https://slo248.github.io/todoapp/",
   "name": "todo",
   "version": "0.1.0",
   "private": true,
@@ -10,6 +11,10 @@
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "sass": "^1.76.0"
   },
   "scripts": {
     "start": "react-scripts start",
