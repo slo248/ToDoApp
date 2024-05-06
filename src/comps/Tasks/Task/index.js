@@ -9,6 +9,7 @@ import {
 import useStore from '~/store';
 import cmds from '~/store/commands';
 import styles from './Task.module.scss';
+import { TaskStatus } from '~/store/reducer';
 
 const cx = classNames.bind(styles);
 
@@ -22,7 +23,13 @@ export default function Task({ taskId }) {
 
   return (
     <div className={cx('wrapper')}>
-      <p className={cx('desc')}>{task.desc}</p>
+      <p
+        className={cx('desc', {
+          [cx('done')]: task.status === TaskStatus.DONE,
+        })}
+      >
+        {task.desc}
+      </p>
       <div className={cx('btns')}>
         <button className={cx('btn', 'btn-edit')}>
           <FontAwesomeIcon icon={faPenToSquare} />
