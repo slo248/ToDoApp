@@ -30,4 +30,6 @@ function delTask(taskId) {
   };
 }
 
-export default { addTask, updTaskDesc, updTaskStatus, delTask };
+const all = { addTask, updTaskDesc, updTaskStatus, delTask };
+
+export default all;
