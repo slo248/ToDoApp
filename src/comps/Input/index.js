@@ -16,7 +16,7 @@ export default function Input({
   const inputRef = useRef();
 
   function handleAdd() {
-    dispatch(cmds.addTask(inputRef.current.value));
+    dispatch(cmds.addTask(inputRef.current.value.trim()));
     setTaskDesc('');
     inputRef.current.focus();
   }
