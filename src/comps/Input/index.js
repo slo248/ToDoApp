@@ -11,7 +11,7 @@ export default function Input({
   placeholder = 'Enter new task...',
   buttonText = 'Add',
 }) {
-  const [state, dispatch] = useStore();
+  const [, dispatch] = useStore();
   const [taskDesc, setTaskDesc] = useState('');
   const inputRef = useRef();
 
