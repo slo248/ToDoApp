@@ -1,9 +1,9 @@
-import { useContext, useRef } from 'react';
-
+import { useRef } from 'react';
 import classNames from 'classnames/bind';
+
 import styles from './Input.module.scss';
-import Context from '~/store/Context';
 import * as cmds from '~/store/commands';
+import useStore from '~/store';
 
 const cx = classNames.bind(styles);
 
@@ -11,7 +11,7 @@ export default function Input({
   placeholder = 'Enter new task...',
   buttonText = 'Add',
 }) {
-  const [state, dispatch] = useContext(Context);
+  const [state, dispatch] = useStore();
   const inputRef = useRef();
 
   function handleAdd(e) {

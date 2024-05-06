@@ -2,6 +2,7 @@
 
 :root {
   --default-content-width: 600px;
+  --border-radius: 10px;
 
   font-size: 62.5%;
   font-family: 'Roboto', sans-serif;

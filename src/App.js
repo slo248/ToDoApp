@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import Provider from '~/store/Provider';
 import Header from '~/comps/Header';
 import Input from '~/comps/Input';
+import Tasks from './comps/Tasks';
 import styles from './App.module.scss';
 
 const cx = classNames.bind(styles);
@@ -14,6 +15,7 @@ export default function App() {
       <div className={cx('content')}>
         <Provider className={cx('input-wrapper')}>
           <Input />
+          <Tasks />
         </Provider>
       </div>
     </div>
