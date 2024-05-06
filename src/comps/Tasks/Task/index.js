@@ -1,15 +1,12 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faXmark,
-  faCheck,
-  faPenToSquare,
-} from '@fortawesome/free-solid-svg-icons';
+import { faXmark, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 import useStore from '~/store';
 import cmds from '~/store/commands';
 import styles from './Task.module.scss';
 import { TaskStatus } from '~/store/reducer';
+import StatusBox from '~/comps/StatusBox';
 
 const cx = classNames.bind(styles);
 
@@ -21,8 +18,8 @@ export default function Task({ taskId }) {
     dispatch(cmds.delTask(taskId));
   }
 
-  function handleDone() {
-    if (task.status === TaskStatus.DONE)
+  function handleToggle() {
+    if (TaskStatus.getBool(task.status))
       dispatch(cmds.updTaskStatus(taskId, TaskStatus.PENDING));
     else dispatch(cmds.updTaskStatus(taskId, TaskStatus.DONE));
   }
@@ -31,7 +28,7 @@ export default function Task({ taskId }) {
     <div className={cx('wrapper')}>
       <p
         className={cx('desc', {
-          [cx('done')]: task.status === TaskStatus.DONE,
+          [cx('done')]: TaskStatus.getBool(task.status),
         })}
       >
         {task.desc}
@@ -40,9 +37,10 @@ export default function Task({ taskId }) {
         <button className={cx('btn', 'btn-edit')}>
           <FontAwesomeIcon icon={faPenToSquare} />
         </button>
-        <button className={cx('btn', 'btn-done')} onClick={handleDone}>
-          <FontAwesomeIcon icon={faCheck} />
-        </button>
+        <StatusBox
+          status={TaskStatus.getBool(task.status)}
+          onClick={handleToggle}
+        />
         <button className={cx('btn', 'btn-remove')} onClick={handleRemove}>
           <FontAwesomeIcon icon={faXmark} />
         </button>

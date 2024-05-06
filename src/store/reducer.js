@@ -3,6 +3,12 @@ import actions from './actions';
 export const TaskStatus = Object.freeze({
   PENDING: 'Pending',
   DONE: 'Done',
+  getName(flag) {
+    return flag ? this.DONE : this.PENDING;
+  },
+  getBool(name) {
+    return name === this.DONE;
+  },
 });
 
 export const initState = {
