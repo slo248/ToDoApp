@@ -31,6 +31,12 @@ export default function reducer(state, action) {
           status: TaskStatus.PENDING,
         });
       break;
+    case actions.UPD_DESC:
+      newState.tasks[action.taskId].desc = action.newTaskDesc;
+      break;
+    case actions.UPD_STATUS:
+      newState.tasks[action.taskId].status = action.newTaskStatus;
+      break;
     case actions.DEL:
       newState.tasks.splice(action.taskId, 1);
       break;

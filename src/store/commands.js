@@ -7,10 +7,19 @@ function addTask(taskDesc) {
   };
 }
 
-function updTask(task) {
+function updTaskDesc(taskId, newTaskDesc) {
   return {
-    type: actions.UPD,
-    task,
+    type: actions.UPD_DESC,
+    taskId,
+    newTaskDesc,
+  };
+}
+
+function updTaskStatus(taskId, newTaskStatus) {
+  return {
+    type: actions.UPD_STATUS,
+    taskId,
+    newTaskStatus,
   };
 }
 
@@ -21,4 +30,4 @@ function delTask(taskId) {
   };
 }
 
-export default { addTask, updTask, delTask };
+export default { addTask, updTaskDesc, updTaskStatus, delTask };

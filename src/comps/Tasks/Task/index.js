@@ -21,6 +21,12 @@ export default function Task({ taskId }) {
     dispatch(cmds.delTask(taskId));
   }
 
+  function handleDone() {
+    if (task.status === TaskStatus.DONE)
+      dispatch(cmds.updTaskStatus(taskId, TaskStatus.PENDING));
+    else dispatch(cmds.updTaskStatus(taskId, TaskStatus.DONE));
+  }
+
   return (
     <div className={cx('wrapper')}>
       <p
@@ -34,7 +40,7 @@ export default function Task({ taskId }) {
         <button className={cx('btn', 'btn-edit')}>
           <FontAwesomeIcon icon={faPenToSquare} />
         </button>
-        <button className={cx('btn', 'btn-done')}>
+        <button className={cx('btn', 'btn-done')} onClick={handleDone}>
           <FontAwesomeIcon icon={faCheck} />
         </button>
         <button className={cx('btn', 'btn-remove')} onClick={handleRemove}>
