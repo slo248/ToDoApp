@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './Input.module.scss';
-import * as cmds from '~/store/commands';
+import cmds from '~/store/commands';
 import useStore from '~/store';
 
 const cx = classNames.bind(styles);

@@ -1,22 +1,24 @@
 import actions from './actions';
 
-export function addTask(taskDesc) {
+function addTask(taskDesc) {
   return {
     type: actions.ADD,
     taskDesc,
   };
 }
 
-export function updTask(task) {
+function updTask(task) {
   return {
     type: actions.UPD,
     task,
   };
 }
 
-export function delTask(task) {
+function delTask(taskId) {
   return {
     type: actions.DEL,
-    task,
+    taskId,
   };
 }
+
+export default { addTask, updTask, delTask };
