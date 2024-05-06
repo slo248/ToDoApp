@@ -23,7 +23,7 @@ export default function reducer(state, action) {
   switch (action.type) {
     case actions.ADD:
       newState.tasks.unshift({
-        desc: action.task,
+        desc: action.taskDesc,
         status: TaskStatus.PENDING,
       });
       break;

@@ -1,9 +1,9 @@
 import actions from './actions';
 
-export function addTask(task) {
+export function addTask(taskDesc) {
   return {
     type: actions.ADD,
-    task,
+    taskDesc,
   };
 }
 
@@ -14,7 +14,7 @@ export function updTask(task) {
   };
 }
 
-export function updTask(task) {
+export function delTask(task) {
   return {
     type: actions.DEL,
     task,

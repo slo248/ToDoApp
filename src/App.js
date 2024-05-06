@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 
+import Provider from '~/store/Provider';
 import Header from '~/comps/Header';
 import Input from '~/comps/Input';
 import styles from './App.module.scss';
@@ -11,9 +12,9 @@ export default function App() {
     <div className={cx('wrapper')}>
       <Header classNames={cx('header-wrapper')} />
       <div className={cx('content')}>
-        <div className={cx('input-wrapper')}>
+        <Provider className={cx('input-wrapper')}>
           <Input />
-        </div>
+        </Provider>
       </div>
     </div>
   );
