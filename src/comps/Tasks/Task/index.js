@@ -6,7 +6,7 @@ import styles from './Task.module.scss';
 const cx = classNames.bind(styles);
 
 export default function Task({ taskId }) {
-  const [state, dispatch] = useStore();
+  const [state] = useStore();
   const task = state.tasks[taskId];
   return (
     <div className={cx('wrapper')}>

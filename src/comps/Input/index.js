@@ -22,7 +22,7 @@ export default function Input({
   }
 
   function handleKey(e) {
-    if (e.key == 'Enter') handleAdd();
+    if (e.key === 'Enter') handleAdd();
   }
 
   return (
