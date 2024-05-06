@@ -5,8 +5,38 @@
   padding: 10px 14px;
   border: 1px solid #ccc;
   border-radius: var(--border-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+    border-color: #333;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
 }
 
 .desc {
   flex: 1 0;
+
+  &.done {
+    text-decoration: line-through;
+    color: #ccc;
+  }
+}
+
+.btns {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  &:hover {
+    cursor: pointer;
+  }
+  &-done {
+    color: green;
+  }
+  &-remove {
+    color: red;
+  }
 }

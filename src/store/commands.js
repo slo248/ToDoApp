@@ -1,22 +1,35 @@
 import actions from './actions';
 
-export function addTask(taskDesc) {
+function addTask(taskDesc) {
   return {
     type: actions.ADD,
     taskDesc,
   };
 }
 
-export function updTask(task) {
+function updTaskDesc(taskId, newTaskDesc) {
   return {
-    type: actions.UPD,
-    task,
+    type: actions.UPD_DESC,
+    taskId,
+    newTaskDesc,
   };
 }
 
-export function delTask(task) {
+function updTaskStatus(taskId, newTaskStatus) {
   return {
-    type: actions.DEL,
-    task,
+    type: actions.UPD_STATUS,
+    taskId,
+    newTaskStatus,
   };
 }
+
+function delTask(taskId) {
+  return {
+    type: actions.DEL,
+    taskId,
+  };
+}
+
+const all = { addTask, updTaskDesc, updTaskStatus, delTask };
+
+export default all;

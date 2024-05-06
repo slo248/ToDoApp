@@ -1,6 +1,7 @@
 const actions = Object.freeze({
   ADD: 'add',
-  UPD: 'update',
+  UPD_DESC: 'update description',
+  UPD_STATUS: 'update status',
   DEL: 'delete',
 });
 

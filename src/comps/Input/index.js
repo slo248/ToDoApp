@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './Input.module.scss';
-import * as cmds from '~/store/commands';
+import cmds from '~/store/commands';
 import useStore from '~/store';
 
 const cx = classNames.bind(styles);
@@ -16,7 +16,7 @@ export default function Input({
   const inputRef = useRef();
 
   function handleAdd() {
-    dispatch(cmds.addTask(inputRef.current.value));
+    dispatch(cmds.addTask(inputRef.current.value.trim()));
     setTaskDesc('');
     inputRef.current.focus();
   }
