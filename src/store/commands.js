@@ -30,6 +30,13 @@ function delTask(taskId) {
   };
 }
 
-const all = { addTask, updTaskDesc, updTaskStatus, delTask };
+function setEditTask(taskId = null) {
+  return {
+    type: actions.SET_EDIT_ID,
+    taskId,
+  };
+}
+
+const all = { addTask, updTaskDesc, updTaskStatus, delTask, setEditTask };
 
 export default all;

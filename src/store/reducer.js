@@ -22,6 +22,7 @@ export const initState = {
       status: TaskStatus.DONE,
     },
   ],
+  editTaskId: null,
 };
 
 export default function reducer(state, action) {
@@ -42,6 +43,9 @@ export default function reducer(state, action) {
       break;
     case actions.UPD_STATUS:
       newState.tasks[action.taskId].status = action.newTaskStatus;
+      break;
+    case actions.SET_EDIT_ID:
+      newState.editTaskId = action.taskId;
       break;
     case actions.DEL:
       newState.tasks.splice(action.taskId, 1);
