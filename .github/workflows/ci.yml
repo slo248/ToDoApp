@@ -8,6 +8,10 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: create-react-app
+
     steps:
       - uses: actions/checkout@v2
 
@@ -17,9 +21,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: |
-          cd create-react-app
-          npm install
+        run: npm install
 
       - name: Build
         run: npm run build

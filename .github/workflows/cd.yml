@@ -8,6 +8,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: create-react-app
+
     steps:
       - uses: actions/checkout@v2
 
@@ -18,7 +22,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd create-react-app
           npm install
 
       - name: Deploy
