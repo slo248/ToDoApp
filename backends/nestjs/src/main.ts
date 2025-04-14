@@ -8,7 +8,7 @@ async function bootstrap() {
     type: VersioningType.URI,
     defaultVersion: '1',
   });
-  app.useGlobalPipes(new ValidationPipe());
-  await app.listen(process.env.PORT ?? 3000);
+  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+  await app.listen(process.env.PORT ?? 3001);
 }
 bootstrap();
