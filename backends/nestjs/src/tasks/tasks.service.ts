@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { Task } from './entities/task.entity';
@@ -32,21 +32,29 @@ export class TasksService {
   }
 
   findAll(limit: number, offset: number) {
-    console.log(limit, offset);
     const list = Array.from(this.tasks.values());
     const paginatedList = list.slice(offset, offset + limit);
     return paginatedList;
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} task`;
+    const task = this.tasks.get(id);
+    if (!task) {
+      throw new NotFoundException();
+    }
+    return task;
   }
 
   update(id: number, updateTaskDto: UpdateTaskDto) {
-    return `This action updates a #${id} task`;
+    const task = this.findOne(id);
+    const updatedTask = { ...task, ...updateTaskDto };
+    this.tasks.set(id, updatedTask);
+    return updatedTask;
   }
 
   remove(id: number) {
-    return `This action removes a #${id} task`;
+    const task = this.findOne(id);
+    this.tasks.delete(id);
+    return task;
   }
 }
